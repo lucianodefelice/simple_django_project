@@ -15,13 +15,21 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from ProyectoEntregable.views import hello_world, segunda_vista, diaDeHoy, miNombreEs, probandoTemplate
+from ProyectoEntregable.views import  diaDeHoy, miNombreEs, template_using_context, template_using_loader, new_course, mostrar_familiares
 
+from ProyectoEntregable.views import (
+    template_using_context,
+    template_using_loader,
+    new_course,
+    mostrar_familiares,
+)
+ 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('hello_world', hello_world),
-    path('segundavista', segunda_vista),
     path('diadehoy', diaDeHoy),
     path('miNombreEs/<nombre>/<edad>', miNombreEs),
-    path('probandoTemplate', probandoTemplate)
+    path('template_using_context/<str:name>/<str:last_name>', template_using_context),
+    path('template_using_loader/<str:name>/<str:last_name>', template_using_loader),
+    path('new_course/<str:name>/<str:code>', new_course),
+    path('mostrar_familiares/<str:nombre>/<str:apellido>/<str:email>', mostrar_familiares),
 ]
